@@ -1,8 +1,4 @@
 sceneSetups:
-<<<<<<< HEAD
-- path: Assets/Davids-Virus-Game.unity
-=======
 - path: Assets/MainScene.unity
->>>>>>> 0316edbad7a7b1f98aff1ec2a7b48547006f82c3
   isLoaded: 1
   isActive: 1

@@ -60,6 +60,7 @@ GameObject:
   - component: {fileID: 114006760220034454}
   - component: {fileID: 195012134703480002}
   - component: {fileID: 114440899349726834}
+  - component: {fileID: 82859416586449316}
   m_Layer: 0
   m_Name: WhiteBloodCell
   m_TagString: Untagged
@@ -322,6 +323,86 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!82 &82859416586449316
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1606197620753674}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: a987caad054db944389c7ac2a1d535e4, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!95 &95439519948700668
 Animator:
   serializedVersion: 3
@@ -371,6 +452,8 @@ MonoBehaviour:
   despawnTime: 0
   isDead: 0
   damaged: 0
+  damageTakenParticle: {fileID: 198578850450338714, guid: f263761b31b32844db272981fc31d043,
+    type: 2}
 --- !u!114 &114307985383796824
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -390,6 +473,8 @@ MonoBehaviour:
   physicsCollider: {fileID: 0}
   triggerCollider: {fileID: 0}
   isFighting: 0
+  deathParticles: {fileID: 198016469437962772, guid: 60b2dc6b5b5f0414ea0431e7b44fbc7e,
+    type: 2}
 --- !u!114 &114440899349726834
 MonoBehaviour:
   m_ObjectHideFlags: 1

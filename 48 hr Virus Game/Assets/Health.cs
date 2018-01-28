@@ -12,6 +12,8 @@ public class Health : MonoBehaviour {
 	public bool isDead;
 	public bool damaged;
 
+    public ParticleSystem damageTakenParticle;
+
 	void Awake() {
 		currentHealth = startingHealth;
 	}
@@ -25,6 +27,20 @@ public class Health : MonoBehaviour {
 		currentHealth -= dmg;
 		if (currentHealth <= 0 && !isDead)
 			Die (attacker);
+
+        var aud = GetComponent<AudioSource>();
+        if(aud != null && aud.enabled == true)
+        {
+            Debug.Log("Playing audio for: " + gameObject.name);
+            aud.Play();
+        }
+
+        if(damageTakenParticle != null)
+        {
+            var temp = Instantiate(damageTakenParticle, transform.position, transform.rotation);
+            Destroy(temp, 1);
+
+        }
 	}
 
 	public void Die(GameObject killer) {

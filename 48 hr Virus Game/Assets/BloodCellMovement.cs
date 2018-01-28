@@ -14,6 +14,8 @@ public class BloodCellMovement : MonoBehaviour {
     public Collider triggerCollider;
     public bool isFighting = false;
 
+    public ParticleSystem deathParticles;
+
     // Use this for initialization
     void Start () {
         rb = GetComponent<Rigidbody>();
@@ -56,6 +58,13 @@ public class BloodCellMovement : MonoBehaviour {
         if (gameObject.layer != LayerMask.NameToLayer("Viruses"))
         {
             PlayerTest.player.killedUnitEvent.Invoke(gameObject);
+        }
+        if(deathParticles != null)
+        {
+
+            var temp = Instantiate(deathParticles, transform.position, transform.rotation);
+            Destroy(temp, 2);
+
         }
     }
 

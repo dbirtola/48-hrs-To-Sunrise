@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/DamenTest.unity
+- path: Assets/Davids-Virus-Game.unity
   isLoaded: 1
   isActive: 1

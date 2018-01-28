@@ -19,7 +19,7 @@ public class Mutation : MonoBehaviour {
     public string description;
 
     public int currentDNALevel = 0;
-    public int[] DNAToLevel;
+     int[] DNAToLevel;
     public int upgradeLevel = 1;
     public int maxLevel = 10;
 
@@ -28,6 +28,15 @@ public class Mutation : MonoBehaviour {
     public virtual void Start()
     {
         PlayerTest.player.killedUnitEvent.AddListener(processUnitKilled);
+
+        if(DNAToLevel == null)
+        {
+            DNAToLevel = new int[20];
+            for(int i = 0; i < 20; i++)
+            {
+                DNAToLevel[i] = (int)(10 * Mathf.Pow(1.1f, i));
+            }
+        }
     }
 
 

@@ -19,6 +19,7 @@ public class MutationPanel : MonoBehaviour {
         foreach (Button b in GetComponentsInChildren<Button>())
         {
             b.GetComponent<Image>().color = b.colors.normalColor;
+  
         }
 
         var col = selected.GetComponent<Image>().color;
@@ -36,6 +37,7 @@ public class MutationPanel : MonoBehaviour {
             if(b.associatedUpgrade == null)
             {
                 b.setUpgrade(mutation);
+                b.enabled = true;
                 break;
             }
         }

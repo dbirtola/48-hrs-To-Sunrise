@@ -1,12 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
+using UnityEngine.AI;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour {
     //text variables will be used to create display of mutation points
     public Text countText;
     public Text winText;
+
+
+    public GameObject target;
 
     //counts the number of kills for Mutation points
     public int countKills;
@@ -21,18 +25,35 @@ public class PlayerController : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+        NavMesh.pathfindingIterationsPerFrame = 1000;
         countKills = 0;
         rb = GetComponent<Rigidbody>();
+        
 	}
+
+    public void SetTarget(GameObject target)
+    {
+        this.target = target;
+        GetComponent<SpawnEnemies>().target = target;
+    }
+
+    public GameObject findNewTarget()
+    {
+        var temp = FindObjectOfType<Organ>().gameObject;
+        SetTarget(temp);
+        return temp;
+    }
 
     // Update is called once per frame
     void FixedUpdate()
     {
+        /*
         float moveHorizontal = Input.GetAxis("Horizontal");
         float moveVertical = Input.GetAxis("Vertical");
 
         Vector3 movement = new Vector3(moveHorizontal, 0.0f, moveVertical);
         rb.AddForce(movement * speed);
+        */
     }
         //if collides with bloodCell, destroy bloodCell, increment count, explode force, create 5 viruses
         void OnCollisionEnter(Collision other)

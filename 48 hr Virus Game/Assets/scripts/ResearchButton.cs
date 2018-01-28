@@ -34,7 +34,7 @@ public class ResearchButton : MonoBehaviour {
     {
         associatedUpgrade = upgrade;
         button.interactable = true;
-        GetComponent<Image>().sprite = activeSprite;
+        //GetComponent<Image>().sprite = activeSprite;
         transform.parent.gameObject.GetComponent<Image>().sprite = associatedUpgrade.icon;
     }
     

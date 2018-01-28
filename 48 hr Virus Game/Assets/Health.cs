@@ -20,15 +20,16 @@ public class Health : MonoBehaviour {
 		damaged = false;
 	}
 
-	public void inflictDamage(int dmg) {
+	public void inflictDamage(int dmg, GameObject attacker) {
 		damaged = true;
 		currentHealth -= dmg;
 		if (currentHealth <= 0 && !isDead)
-			Die ();
+			Die (attacker);
 	}
 
-	public void Die() {
+	public void Die(GameObject killer) {
 		isDead = true;
+        killer.GetComponent<BloodCellMovement>().FindNewTarget();
 		Destroy (gameObject, despawnTime);
 	}
 }

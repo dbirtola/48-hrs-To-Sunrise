@@ -3,7 +3,14 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
+<<<<<<< HEAD
   tags: []
+=======
+  tags:
+  - bloodCell
+  - whiteCell
+  - Enemy
+>>>>>>> 639fae20a17c51e951621327f76491fb35907eab
   layers:
   - Default
   - TransparentFX

@@ -17,6 +17,7 @@ public class BloodCellMovement : MonoBehaviour {
     // Use this for initialization
     void Start () {
         rb = GetComponent<Rigidbody>();
+        rb.angularVelocity = new Vector3(Random.Range(0, 10), Random.Range(0, 10), Random.Range(0, 10));
     }
 
     void Update()
@@ -26,6 +27,12 @@ public class BloodCellMovement : MonoBehaviour {
         {
             SetTarget(FindObjectOfType<Organ>().gameObject);
             return;
+        }
+
+        var child = transform.Find("blood cell");
+        if(child != null)
+        {
+            child.transform.Rotate(new Vector3(Random.Range(0, 10), Random.Range(0, 10), Random.Range(0, 10)));
         }
 
 
@@ -44,6 +51,13 @@ public class BloodCellMovement : MonoBehaviour {
 
     }
 
+    void OnDestroy()
+    {
+        if (gameObject.layer != LayerMask.NameToLayer("Viruses"))
+        {
+            PlayerTest.player.killedUnitEvent.Invoke(gameObject);
+        }
+    }
 
     // Update is called once per frame
     void FixedUpdate()
@@ -104,6 +118,7 @@ public class BloodCellMovement : MonoBehaviour {
             SetTarget(FindObjectOfType<Organ>().gameObject);
         }
     }
+
    public void SetTarget(GameObject other) {
         target = other;
         Vector3 targetPos = other.transform.position;

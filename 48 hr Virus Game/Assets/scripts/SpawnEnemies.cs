@@ -37,9 +37,15 @@ public class SpawnEnemies : MonoBehaviour {
         }else
         {
 
-        } 
+        }
 
-        temp.GetComponent<BloodCellMovement>().SetTarget(target);
+            temp.GetComponent<BloodCellMovement>().SetTarget(target);
+
+
+        if (GetComponent<PlayerController>())
+        {
+            PlayerTest.player.spawnedUnitEvent.Invoke(temp);
+        }
 
     }
 }

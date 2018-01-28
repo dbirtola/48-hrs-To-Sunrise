@@ -34,7 +34,7 @@ public class Mutation : MonoBehaviour {
             DNAToLevel = new int[20];
             for(int i = 0; i < 20; i++)
             {
-                DNAToLevel[i] = (int)(10 * Mathf.Pow(1.1f, i));
+                DNAToLevel[i] = (int)(10 * Mathf.Pow(1.3f, i));
             }
         }
     }
@@ -44,11 +44,9 @@ public class Mutation : MonoBehaviour {
     {
         if(focusedUpgrade == this)
         {
-            Debug.Log("Adding: 1 exp to " + name);
             currentDNALevel += 1;
             if (currentDNALevel >= DNAToLevel[upgradeLevel])
             {
-                Debug.Log(name + "Leveled up");
                 currentDNALevel = 0;
                 upgradeLevel++;
             }

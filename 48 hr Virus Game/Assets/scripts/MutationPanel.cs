@@ -30,7 +30,6 @@ public class MutationPanel : MonoBehaviour {
 
     public void AddMutation(Mutation mutation)
     {
-        Debug.Log("Adding : " + mutation.name);
         var buttons = GetComponentsInChildren<ResearchButton>();
         foreach(ResearchButton b in buttons)
         {

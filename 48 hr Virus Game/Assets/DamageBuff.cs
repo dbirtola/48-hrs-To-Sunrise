@@ -9,9 +9,11 @@ public class DamageBuff : MonoBehaviour {
 
     public int amount;
 
-    public void Activate()
+    public void Activate(int damage)
     {
-        GetComponent<Damage>().attackDamage += amount;
+        Debug.Log("Added damage");
+        amount = damage;
+        GetComponent<Damage>().attackDamage += damage;
     }
 
     public void Deactivate()

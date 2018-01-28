@@ -25,7 +25,7 @@ public class PlayerController : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        NavMesh.pathfindingIterationsPerFrame = 1000;
+        NavMesh.pathfindingIterationsPerFrame = 1500;
         countKills = 0;
         rb = GetComponent<Rigidbody>();
         

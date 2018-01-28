@@ -27,12 +27,12 @@ public class Damage : MonoBehaviour {
 	void OnCollisionEnter (Collision col)
 	{
 		if (isVirus) {
-			if (col.gameObject == GameObject.FindWithTag ("BloodCell")) {
+			if (col.gameObject == GameObject.FindWithTag ("Enemy")) {
 				otherDamage = col.gameObject.GetComponent<Damage> ();
 				inRange = true;
 			}
 		}
-		else { // if red or white
+		else { // if not virus
 			if (col.gameObject == GameObject.Find ("virusPlayer")) {
 				otherDamage = col.gameObject.GetComponent<Damage> ();
 				inRange = true;
@@ -43,12 +43,12 @@ public class Damage : MonoBehaviour {
 	void OnCollisionStay(Collision col)
 	{
 		if (isVirus) {
-			if (col.gameObject == GameObject.FindWithTag ("BloodCell")) {
+			if (col.gameObject == GameObject.FindWithTag ("Enemy")) {
 				otherDamage = col.gameObject.GetComponent<Damage> ();
 				inRange = true;
 			}
 		}
-		else { // if red or white
+		else { // if not virus
 			if (col.gameObject == GameObject.Find ("virusPlayer")) {
 				otherDamage = col.gameObject.GetComponent<Damage> ();
 				inRange = true;
@@ -58,11 +58,11 @@ public class Damage : MonoBehaviour {
 	void OnCollisionExit (Collision col)
 	{
 		if (isVirus) {
-			if (col.gameObject == GameObject.FindWithTag ("BloodCell"))
+			if (col.gameObject == GameObject.FindWithTag ("Enemy"))
 				inRange = false;
 		}
 
-		else { // if red or white
+		else { // if not virus
 			if (col.gameObject == GameObject.Find ("virusPlayer"))
 				inRange = false;
 		}

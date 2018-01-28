@@ -6,6 +6,7 @@ TagManager:
   tags:
   - bloodCell
   - whiteCell
+  - Enemy
   layers:
   - Default
   - TransparentFX
@@ -15,10 +16,10 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
-  - 
-  - 
+  - Viruses
+  - RedCell
+  - WhiteCell
+  - Organ
   - 
   - 
   - 

@@ -17,20 +17,28 @@ public class MutationOptions : MonoBehaviour {
 		
 	}
 
-    void updateOptions()
+    public void updateOptions()
     {
         foreach(Transform t in transform)
         {
-            Destroy(t);
+            Destroy(t.gameObject);
         }
         transform.DetachChildren();
 
         foreach(Mutation m in PlayerTest.player.mutations)
         {
+            Debug.Log("Checking: " + m.mutationName);
+
+
             if(m.enabled == false)
             {
                 var mut = Instantiate(mutationSelectionButton);
                 mut.transform.SetParent(transform);
+                mut.setMutation(m);
+                if(PlayerTest.player.mutationPoints >= 1)
+                {
+                    mut.GetComponent<Button>().interactable = true;
+                }
             }
         }
         

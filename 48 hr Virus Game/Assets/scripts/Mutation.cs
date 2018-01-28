@@ -14,6 +14,8 @@ public class Mutation : MonoBehaviour {
     static Mutation focusedUpgrade;
 
     public Sprite icon;
+    public string mutationName;
+    [TextArea]
     public string description;
 
     public int currentDNALevel = 0;
@@ -31,20 +33,24 @@ public class Mutation : MonoBehaviour {
 
     protected virtual void processUnitKilled(GameObject unit)
     {
-        Debug.Log("Adding: 1 exp to " + name);
-        currentDNALevel += 1;
-        if(currentDNALevel >= DNAToLevel[upgradeLevel])
+        if(focusedUpgrade == this)
         {
-            Debug.Log(name + "Leveled up");
-            upgradeLevel++;
+            Debug.Log("Adding: 1 exp to " + name);
+            currentDNALevel += 1;
+            if (currentDNALevel >= DNAToLevel[upgradeLevel])
+            {
+                Debug.Log(name + "Leveled up");
+                upgradeLevel++;
+            }
+
         }
+
     }
 
     public virtual void Update()
     {
         if(focusedUpgrade == this)
         {
-            Debug.Log("Dna going to: " + name);
             
         }
     }

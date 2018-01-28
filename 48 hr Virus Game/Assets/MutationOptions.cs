@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+
 public class MutationOptions : MonoBehaviour {
 
     public MutationSelectionButton mutationSelectionButton;
@@ -16,6 +17,8 @@ public class MutationOptions : MonoBehaviour {
 	void Update () {
 		
 	}
+
+
 
     public void updateOptions()
     {

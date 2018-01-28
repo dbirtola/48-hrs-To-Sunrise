@@ -40,6 +40,7 @@ public class Mutation : MonoBehaviour {
             if (currentDNALevel >= DNAToLevel[upgradeLevel])
             {
                 Debug.Log(name + "Leveled up");
+                currentDNALevel = 0;
                 upgradeLevel++;
             }
 
@@ -53,6 +54,12 @@ public class Mutation : MonoBehaviour {
         {
             
         }
+    }
+
+
+    public float getPercentFull()
+    {
+        return (float)currentDNALevel / DNAToLevel[upgradeLevel];
     }
 
     public virtual void setAsFocus()

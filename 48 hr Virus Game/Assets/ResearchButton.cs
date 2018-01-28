@@ -20,12 +20,13 @@ public class ResearchButton : MonoBehaviour {
     void processClick()
     {
         associatedUpgrade.setAsFocus();
-        GetComponent<Image>().color = GetComponent<Button>().colors.pressedColor;
+        transform.parent.GetComponent<MutationPanel>().optionSelected(this);
     }
 
 	// Update is called once per frame
 	void Update () {
-		
+        if(associatedUpgrade != null)
+            GetComponentInChildren<Slider>().value = associatedUpgrade.getPercentFull();
 	}
 
 

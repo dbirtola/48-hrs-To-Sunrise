@@ -13,6 +13,7 @@ public class PlayerTest : MonoBehaviour {
     public static PlayerTest player;
     public KilledUnitEvent killedUnitEvent;
     public Mutation[] mutations;
+    public int mutationPoints;
 
     void Awake()
     {
@@ -24,15 +25,21 @@ public class PlayerTest : MonoBehaviour {
 
 	void Start () {
         mutations = GetComponentsInChildren<Mutation>();
+        foreach(Mutation m in mutations)
+        {
+            if(m.enabled == true)
+            {
+                FindObjectOfType<UIManager>().mutationPanel.AddMutation(m);
+            }
+        }
 
 	}
 
 
     
-    void AddMutation<T>() where T : Mutation
+    public void activateMutation(Mutation mutation)
     {
-        GetComponent<T>().enabled = true;
-
+        mutation.enabled = true;
     }
 
     public List<Mutation> getActiveMutations()
@@ -76,6 +83,11 @@ public class PlayerTest : MonoBehaviour {
         {
 
             FindObjectOfType<MutationPanel>().AddMutation(GetComponent<DamageUpgrade>());
+        }
+        if (Input.GetKeyDown(KeyCode.I))
+        {
+            FindObjectOfType<UIManager>().toggleMutationSelect();
+
         }
     }
 }

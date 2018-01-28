@@ -8,9 +8,16 @@ public class PlayerController : MonoBehaviour {
     public Text countText;
     public Text winText;
 
-    public int countKills;//counts the number of kills for Mutation points
+    //counts the number of kills for Mutation points
+    public int countKills;
     public float speed;
     private Rigidbody rb;
+
+    //number of spawned virus bodies
+    public float spawnRate = .01f;
+
+    //clone the virus after the kill
+    public Transform prefab;
 
 	// Use this for initialization
 	void Start () {
@@ -28,14 +35,37 @@ public class PlayerController : MonoBehaviour {
         rb.AddForce(movement * speed);
     }
         //if collides with bloodCell, destroy bloodCell, increment count, explode force, create 5 viruses
-        void OnTriggerEnter(Collider other)
+        void OnCollisionEnter(Collision other)
         {
             if (other.gameObject.CompareTag("bloodCell"))
             {
-                Destroy(other.gameObject,.2f);
-                //other.gameObject.SetActive(false);
-                countKills++;
+            //damage the bloodCell, decrement health
+
+
+            //if bloodCell health is zero,
+            Destroy(other.gameObject);
+            //randomize the chance of having a higher 
+            int numOfVirusSpawned = (int)(spawnRate * Random.Range(0,10));
+            for(int i = 0;i< numOfVirusSpawned;i++)
+            Instantiate(prefab, other.gameObject.transform.position, Quaternion.identity);
+
+
+            //other.gameObject.SetActive(false);
+            countKills++;
             }
+            //else if other.gameObject.CompareTag("whiteCell")
+            //damage the whiteCell
+             //take damage from whiteCell
+             //if player health zero die
+             //if whiteCell health zero die
         }
-    
+        void OnCollisionStay(Collision other)
+        {
+            if (other.gameObject.CompareTag("bloodCell"))
+            {
+            //take damage per second
+
+        }
+    }
+
 }

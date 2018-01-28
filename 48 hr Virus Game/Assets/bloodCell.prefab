@@ -24,6 +24,7 @@ GameObject:
   - component: {fileID: 23464710735638578}
   - component: {fileID: 54366457099771894}
   - component: {fileID: 114737505166851436}
+  - component: {fileID: 114042584281768748}
   m_Layer: 0
   m_Name: bloodCell
   m_TagString: bloodCell
@@ -100,6 +101,21 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &114042584281768748
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1790725764306476}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2b860d1f9b66594ba8c1930b1958b85, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemy: {fileID: 1790725764306476}
+  spawnTime: 1
+  spawnPoints:
+  - {fileID: 0}
 --- !u!114 &114737505166851436
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -111,7 +127,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2634c628333b1404786e6c145566e9fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thrust: 20
+  thrust: 35
   rb: {fileID: 54366457099771894}
 --- !u!135 &135741531343756556
 SphereCollider:

@@ -5,7 +5,13 @@ TagManager:
   serializedVersion: 2
   tags:
   - bloodCell
+<<<<<<< HEAD
+  - WhiteBloodCell
+  - Virus
+  - RedBloodCell
+=======
   - whiteCell
+>>>>>>> 9ae822c5ef992333cc827dfbf398f30f32d076df
   layers:
   - Default
   - TransparentFX

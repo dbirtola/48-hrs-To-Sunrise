@@ -319,9 +319,11 @@ GameObject:
   - component: {fileID: 665265052}
   - component: {fileID: 665265056}
   - component: {fileID: 665265057}
+  - component: {fileID: 665265059}
+  - component: {fileID: 665265058}
   m_Layer: 0
   m_Name: virusPlayer
-  m_TagString: Untagged
+  m_TagString: Virus
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -422,6 +424,75 @@ MonoBehaviour:
   winText: {fileID: 0}
   countKills: 0
   speed: 10
+--- !u!114 &665265058
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 665265051}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d04c58c46d40f4be08a8d2800dc6c022, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeInBetweenAttacks: 0.3
+  timer: 0
+  attackDamage: 40
+  isVirus: 1
+  inRange: 0
+--- !u!114 &665265059
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 665265051}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72d1ff87b9be1400b910208cf89ded0d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startingHealth: 100
+  currentHealth: 0
+  despawnTime: 0.2
+  isDead: 0
+  damaged: 0
+--- !u!1 &912365561 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1790725764306476, guid: 8a20697c87d6f6547aa07418a0dfeb72,
+    type: 2}
+  m_PrefabInternal: {fileID: 1154094637}
+--- !u!114 &912365568
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 912365561}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d04c58c46d40f4be08a8d2800dc6c022, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeInBetweenAttacks: 0.3
+  timer: 0
+  attackDamage: 20
+  isVirus: 0
+  inRange: 0
+--- !u!114 &912365569
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 912365561}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72d1ff87b9be1400b910208cf89ded0d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startingHealth: 100
+  currentHealth: 0
+  despawnTime: 0.2
+  isDead: 0
+  damaged: 0
 --- !u!1001 &1154094637
 Prefab:
   m_ObjectHideFlags: 0
@@ -470,6 +541,10 @@ Prefab:
       propertyPath: m_IsKinematic
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1790725764306476, guid: 8a20697c87d6f6547aa07418a0dfeb72, type: 2}
+      propertyPath: m_TagString
+      value: WhiteBloodCell
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8a20697c87d6f6547aa07418a0dfeb72, type: 2}
   m_IsPrefabParent: 0
@@ -516,9 +591,87 @@ Prefab:
       propertyPath: m_Name
       value: bloodCell (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 1790725764306476, guid: 8a20697c87d6f6547aa07418a0dfeb72, type: 2}
+      propertyPath: m_TagString
+      value: WhiteBloodCell
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8a20697c87d6f6547aa07418a0dfeb72, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &1223313082 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1790725764306476, guid: 8a20697c87d6f6547aa07418a0dfeb72,
+    type: 2}
+  m_PrefabInternal: {fileID: 1445722273}
+--- !u!114 &1223313089
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1223313082}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d04c58c46d40f4be08a8d2800dc6c022, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeInBetweenAttacks: 0.3
+  timer: 0
+  attackDamage: 0
+  isVirus: 0
+  inRange: 0
+--- !u!114 &1223313090
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1223313082}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72d1ff87b9be1400b910208cf89ded0d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startingHealth: 100
+  currentHealth: 0
+  despawnTime: 0.2
+  isDead: 0
+  damaged: 0
+--- !u!1 &1274071440 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1790725764306476, guid: 8a20697c87d6f6547aa07418a0dfeb72,
+    type: 2}
+  m_PrefabInternal: {fileID: 1177836983}
+--- !u!114 &1274071447
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1274071440}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d04c58c46d40f4be08a8d2800dc6c022, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeInBetweenAttacks: 0.3
+  timer: 0
+  attackDamage: 20
+  isVirus: 0
+  inRange: 0
+--- !u!114 &1274071448
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1274071440}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72d1ff87b9be1400b910208cf89ded0d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startingHealth: 100
+  currentHealth: 0
+  despawnTime: 0.2
+  isDead: 0
+  damaged: 0
 --- !u!1001 &1445722273
 Prefab:
   m_ObjectHideFlags: 0
@@ -564,6 +717,10 @@ Prefab:
       value: 
       objectReference: {fileID: 54366457099771894, guid: 8a20697c87d6f6547aa07418a0dfeb72,
         type: 2}
+    - target: {fileID: 1790725764306476, guid: 8a20697c87d6f6547aa07418a0dfeb72, type: 2}
+      propertyPath: m_TagString
+      value: WhiteBloodCell
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8a20697c87d6f6547aa07418a0dfeb72, type: 2}
   m_IsPrefabParent: 0

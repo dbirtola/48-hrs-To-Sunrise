@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - bloodCell
+  - WhiteBloodCell
+  - Virus
+  - RedBloodCell
   layers:
   - Default
   - TransparentFX

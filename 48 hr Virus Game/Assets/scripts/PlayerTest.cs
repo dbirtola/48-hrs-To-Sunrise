@@ -27,7 +27,10 @@ public class PlayerTest : MonoBehaviour {
         spawnedUnitEvent = new SpawnedUnitEvent();
     }
 
-
+    void OnDestroy()
+    {
+        Debug.Log("Game Over");
+    }
 
 	void Start () {
         mutations = GetComponentsInChildren<Mutation>();

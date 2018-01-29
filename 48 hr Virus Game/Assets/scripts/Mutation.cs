@@ -12,7 +12,7 @@ public class Mutation : MonoBehaviour {
 
 
     static Mutation focusedUpgrade;
-
+    public Sprite backgroundIcon;
     public Sprite icon;
     public string mutationName;
     [TextArea]
@@ -48,6 +48,8 @@ public class Mutation : MonoBehaviour {
             if (currentDNALevel >= DNAToLevel[upgradeLevel])
             {
                 currentDNALevel = 0;
+                var aud = GetComponent<AudioSource>();
+                aud.Play();
                 upgradeLevel++;
             }
 

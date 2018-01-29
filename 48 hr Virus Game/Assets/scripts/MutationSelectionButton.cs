@@ -24,10 +24,13 @@ public class MutationSelectionButton : MonoBehaviour {
 
         if(PlayerTest.player.mutationPoints >= 1)
         {
+
             PlayerTest.player.activateMutation(associatedMutation);
             PlayerTest.player.mutationPoints--;
             FindObjectOfType<UIManager>().mutationPanel.AddMutation(associatedMutation);
             FindObjectOfType<UIManager>().toggleMutationSelect();
+
+
             
         }
 
@@ -38,6 +41,7 @@ public class MutationSelectionButton : MonoBehaviour {
     {
         associatedMutation = mutation;
         //image.sprite = associatedMutation.icon;
+        transform.Find("Image").GetComponent<Image>().sprite = mutation.icon;
         transform.Find("Name_txt").GetComponent<Text>().text = mutation.mutationName;
         transform.Find("Description_txt").GetComponent<Text>().text = mutation.description;
 

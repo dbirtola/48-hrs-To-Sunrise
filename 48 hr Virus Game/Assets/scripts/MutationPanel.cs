@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 public class MutationPanel : MonoBehaviour {
-
+    bool first = true;
 	// Use this for initialization
 	void Start () {
 		
@@ -31,7 +31,13 @@ public class MutationPanel : MonoBehaviour {
     public void AddMutation(Mutation mutation)
     {
         var buttons = GetComponentsInChildren<ResearchButton>();
-        foreach(ResearchButton b in buttons)
+        var aud = GetComponent<AudioSource>();
+        if (aud != null && first == false)
+        {
+            aud.Play();
+        }
+        first = false;
+        foreach (ResearchButton b in buttons)
         {
             if(b.associatedUpgrade == null)
             {

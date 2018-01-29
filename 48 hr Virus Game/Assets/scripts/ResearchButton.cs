@@ -11,7 +11,7 @@ public class ResearchButton : MonoBehaviour {
     public Sprite activeSprite;
 
 	// Use this for initialization
-	void Start () {
+	void Awake () {
         button = GetComponent<Button>();
         button.onClick.AddListener(processClick);
 	}
@@ -19,8 +19,13 @@ public class ResearchButton : MonoBehaviour {
 
     void processClick()
     {
-        associatedUpgrade.setAsFocus();
-        transform.parent.GetComponent<MutationPanel>().optionSelected(this);
+        if(button.interactable == true)
+        {
+
+            associatedUpgrade.setAsFocus();
+            transform.parent.GetComponent<MutationPanel>().optionSelected(this);
+
+        }
     }
 
 	// Update is called once per frame
@@ -35,7 +40,10 @@ public class ResearchButton : MonoBehaviour {
         associatedUpgrade = upgrade;
         button.interactable = true;
         //GetComponent<Image>().sprite = activeSprite;
+        transform.GetChild(0).Find("Background").gameObject.SetActive(true);
+        transform.GetChild(0).Find("Background").GetComponent<Image>().sprite = associatedUpgrade.icon;
         transform.parent.gameObject.GetComponent<Image>().sprite = associatedUpgrade.icon;
+        GetComponent<Image>().sprite = associatedUpgrade.backgroundIcon;
     }
     
 

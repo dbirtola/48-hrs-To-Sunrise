@@ -25,7 +25,7 @@ public class Health : MonoBehaviour {
 	public void inflictDamage(int dmg, GameObject attacker) {
 		damaged = true;
 		currentHealth -= dmg;
-		if (currentHealth <= 0 && !isDead)
+		if (currentHealth <= 0 && !isDead) 
 			Die (attacker);
 
         var aud = GetComponent<AudioSource>();
@@ -46,6 +46,10 @@ public class Health : MonoBehaviour {
 	public void Die(GameObject killer) {
 		isDead = true;
         killer.GetComponent<BloodCellMovement>().FindNewTarget();
+        if (GetComponent<PlayerController>())
+        {
+            FindObjectOfType<UIManager>().GameOver();
+        }
 		Destroy (gameObject, despawnTime);
 	}
 }

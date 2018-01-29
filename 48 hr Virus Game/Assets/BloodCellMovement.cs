@@ -132,10 +132,13 @@ public class BloodCellMovement : MonoBehaviour {
         target = other;
         Vector3 targetPos = other.transform.position;
         targetPos.y = 1;
-        GetComponent<NavMeshAgent>().SetDestination(targetPos);
         if(GetComponent<NavMeshAgent>().isOnNavMesh == false)
         {
             Debug.Log(gameObject.name + " IS NOT ON NAVMESH");
+        }else
+        {
+
+            GetComponent<NavMeshAgent>().SetDestination(targetPos);
         }
     }
 }

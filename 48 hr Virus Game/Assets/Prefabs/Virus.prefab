@@ -3008,7 +3008,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d04c58c46d40f4be08a8d2800dc6c022, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeInBetweenAttacks: 0.5
+  timeInBetweenAttacks: 5
   timer: 0
   attackDamage: 3
   isVirus: 1
@@ -3024,7 +3024,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72d1ff87b9be1400b910208cf89ded0d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingHealth: 3
+  startingHealth: 10
   currentHealth: 0
   despawnTime: 0
   isDead: 0
@@ -3053,7 +3053,7 @@ SphereCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 1.77
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!195 &195980982855930182
 NavMeshAgent:

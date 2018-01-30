@@ -94,6 +94,7 @@ f61c0793411f10cf5fbfa1473fef5ef2 UnityEngine.UI.dll:UnityEngine.UI.ToggleGroup
 98314ae92d6edeeeaf395485b254ef4c Assembly-CSharp.dll:.OrganButton
 a6ad8342b7f932bf4a1cebf2654c6be8 Assembly-CSharp.dll:.UIManager
 3376caeb651de1ba3a50163446f4fbae Assembly-CSharp.dll:.TestSpawner
+2dbfa3fc5694f7ebb934346a4f76b46a Assembly-CSharp.dll:.DebugUI
 05524b8f659e7bfe5756d1335fec24ba UnityEngine.Timeline.dll:UnityEngine.Timeline.ActivationPlayableAsset
 970a95104359198fe1a98ef48655de8c UnityEngine.Timeline.dll:UnityEngine.Timeline.ActivationTrack
 8144169769d51429c4aedc8b0f92d47b UnityEngine.Timeline.dll:UnityEngine.Timeline.AnimationPlayableAsset
@@ -124,6 +125,7 @@ e9bdabf9265d758d56f01bb188916fa8 UnityEngine.Networking.dll:UnityEngine.Networki
 9de3a22eca9aefadba2d10d5987cefe3 UnityEngine.SpatialTracking.dll:UnityEngine.SpatialTracking.TrackedPoseDriver
 7e4431d5af734b4561a0282dcde3376c Assembly-CSharp.dll:.ResearchButton
 6163c5cf6dd8dbd453d76b20c927050c Assembly-CSharp.dll:.DamageUpgrade
+c1c4ab29c288a1fdf2043b67c716d8ff Assembly-CSharp.dll:.RedBloodCell
 322cb40e1e282f28af980cbef7922a90 UnityEngine.Analytics.dll:UnityEngine.Analytics.AnalyticsEventTracker
 dc07d7ad69b399a46e92c483bf1c04ca UnityEngine.Analytics.dll:UnityEngine.Analytics.AnalyticsTracker
 130c0a571c88a98ea2209bc3c45cf461 Assembly-CSharp.dll:.Damage
@@ -133,18 +135,21 @@ bc68edb0af574bf79f9550ead8ebae5c UnityEngine.HoloLens.dll:UnityEngine.Audio.Audi
 c2275a8bfbb9f9942cad75ecdfded41d UnityEngine.HoloLens.dll:UnityEngine.XR.WSA.SpatialMappingCollider
 45f3431f0103c41611e8d4eec3d439df UnityEngine.HoloLens.dll:UnityEngine.XR.WSA.SpatialMappingRenderer
 32c76cad6c58a585d18dbbac4c80fe50 Assembly-CSharp.dll:.PlayerController
-6163c5cf6dd8dbd453d76b20c927050c Assembly-CSharp.dll:.InfectionUpgrade
+05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.temp
+a9d425d38479c9557ead975924873132 Assembly-CSharp.dll:.InfectionUpgrade
 d78da10fc6fe2ebb0bfa7bfae15012c5 Assembly-CSharp.dll:UnityEngine.AI.NavMeshModifierVolume
 01e8f0c786ddaf189065ad55197e4a38 Assembly-CSharp.dll:.WhiteCellSpawner
 2e24e0a2fc471cf0996ddd887c62d12f Assembly-CSharp.dll:.MutationOptions
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.MutationSelection
 cd08b04bb320e3256925091d2aa95ad8 Assembly-CSharp.dll:.HealthBuff
+c1c4ab29c288a1fdf2043b67c716d8ff Assembly-CSharp.dll:.WhiteBloodCell
 05524b8f659e7bfe5756d1335fec24ba UnityEngine.Advertisements.dll:UnityEngine.Advertisements.CallbackExecutor
 05524b8f659e7bfe5756d1335fec24ba UnityEngine.Advertisements.dll:UnityEngine.Advertisements.Editor.Placeholder
 df8505eedbb10e7078b0379a46e652a4 Assembly-CSharp.dll:.Health
 f9dab67fca872f6110539937b41d5cda Assembly-CSharp.dll:.BloodCellMovement
 76119242f799591c84bce8d3be04eee2 Assembly-CSharp.dll:.TestResetLocation
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.Lungs
+c1c4ab29c288a1fdf2043b67c716d8ff Assembly-CSharp.dll:.Virus
 fc1e0f4d8439d9928083474691511a13 UnityEngine.Networking.dll:UnityEngine.Networking.NetworkAnimator
 05524b8f659e7bfe5756d1335fec24ba UnityEngine.Networking.dll:UnityEngine.Networking.NetworkBehaviour
 60b2bb652410a5867a5ab9a01cd38461 UnityEngine.Networking.dll:UnityEngine.Networking.NetworkDiscovery
@@ -177,5 +182,5 @@ c2275a8bfbb9f9942cad75ecdfded41d UnityEngine.HoloLens.dll:UnityEngine.XR.WSA.Spa
 9de3a22eca9aefadba2d10d5987cefe3 UnityEngine.SpatialTracking.dll:UnityEngine.SpatialTracking.TrackedPoseDriver
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.MutationPanel
 6163c5cf6dd8dbd453d76b20c927050c Assembly-CSharp.dll:.HealthUpgrade
-05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.Cell
-05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.animhelper
+c1c4ab29c288a1fdf2043b67c716d8ff Assembly-CSharp.dll:.Cell
+6163c5cf6dd8dbd453d76b20c927050c Assembly-CSharp.dll:.ExplosionUpgrade

@@ -24,8 +24,14 @@ public class Damage : MonoBehaviour {
 			//Attack ();
 	}
 
+    IEnumerator dealConsistentDamage()
+    {
+        return null;
+    }
+
 	void OnCollisionEnter (Collision col)
 	{
+        /*
 		if (isVirus) {
 			if (col.gameObject == GameObject.FindWithTag ("Enemy")) {
 				otherDamage = col.gameObject.GetComponent<Damage> ();
@@ -37,7 +43,7 @@ public class Damage : MonoBehaviour {
 				otherDamage = col.gameObject.GetComponent<Damage> ();
 				inRange = true;
 			}
-		}
+		}*/
         
         if (col.gameObject.GetComponent<Health>())
         { 
@@ -46,15 +52,8 @@ public class Damage : MonoBehaviour {
 
 	}
 
-    void OnTriggerEnter(Collider col)
-    {
-        /*
-        if (col.gameObject.GetComponent<Health>())
-        {
-            Debug.Log("Collided with: " + col.gameObject.name);
-            col.gameObject.GetComponent<Health>().inflictDamage(attackDamage);
-        }*/
-    }
+
+    /*
 	void OnCollisionStay(Collision col)
     {
         timer += Time.deltaTime;
@@ -63,22 +62,10 @@ public class Damage : MonoBehaviour {
             col.gameObject.GetComponent<Health>().inflictDamage(attackDamage, gameObject);
             timer = 0;
         }
-        /*
-		if (isVirus) {
-			if (col.gameObject == GameObject.FindWithTag ("Enemy")) {
-				otherDamage = col.gameObject.GetComponent<Damage> ();
-				inRange = true;
-			}
-		}
-		else { // if not virus
-			if (col.gameObject == GameObject.Find ("virusPlayer")) {
-				otherDamage = col.gameObject.GetComponent<Damage> ();
-				inRange = true;
-			}
-		}
-        */
 
     }
+    */
+    /*
 	void OnCollisionExit (Collision col)
 	{
 		if (isVirus) {
@@ -91,7 +78,7 @@ public class Damage : MonoBehaviour {
 				inRange = false;
 		}
 	}
-		
+		*/
 	/*void Attack () {
 		timer = 0f;
 		if(thisHealth.currentHealth > 0) 

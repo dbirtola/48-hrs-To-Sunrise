@@ -37,7 +37,7 @@ public class Health : MonoBehaviour {
         if(damageTakenParticle != null)
         {
             var temp = Instantiate(damageTakenParticle, transform.position, transform.rotation);
-            Destroy(temp, 1);
+            Destroy(temp.gameObject, 1);
 
         }
 	}

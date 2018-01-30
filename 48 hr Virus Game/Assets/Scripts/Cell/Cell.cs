@@ -42,6 +42,7 @@ public class Cell : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         rb.angularVelocity = new Vector3(Random.Range(0, 10), Random.Range(0, 10), Random.Range(0, 10));
+        navAgent.updateRotation = false;
         //StartCoroutine(CheckForEnemies());
         //StartCoroutine(chaseEnemy());
         cellsCreated++;
@@ -52,20 +53,35 @@ public class Cell : MonoBehaviour
 
         //FindTarget();
         
-        if (target != null)
+        if (target == null)
         {
+            FindTarget();
+        }
+
+
+
+        /*else { 
             Vector3 targetPos = target.transform.position;
             targetPos.y = 1;
             navAgent.SetDestination(targetPos);
         }
+        */
 
+
+
+        if (target.GetComponent<Cell>())
+        {
+            rb.velocity = (target.transform.position - transform.position).normalized * Time.deltaTime * speed;
+        }
+
+        /*
         var child = transform.Find("blood cell");
         if (child != null)
         {
             child.transform.Rotate(new Vector3(Random.Range(0, 10), Random.Range(0, 10), Random.Range(0, 10)) * Time.deltaTime);
         }
 
-        
+        */
 
 
     }
@@ -73,20 +89,18 @@ public class Cell : MonoBehaviour
 
     virtual protected void OnTriggerEnter(Collider col)
     {
-
+        /*
         //Check to see if gameobjects layer is in this units vision mask
         if (visionLayerMask == (visionLayerMask | 1 << col.gameObject.layer)){
             FindTarget();
             //SetTarget(col.gameObject);
-        }
+        }*/
+        if(col.gameObject.GetComponent<Cell>())
+            SetTarget(col.gameObject);
     }
 
 
-    virtual protected void FixedUpdate()
-    {
-        //rb.MovePosition(rb.position + navAgent.desiredVelocity.normalized * speed);
 
-    }
 
     IEnumerator chaseEnemy()
     {
@@ -121,10 +135,10 @@ public class Cell : MonoBehaviour
 
 
 
-
-
+    
     void OnDestroy()
     {
+        cellsCreated--;
         if (gameObject.layer != LayerMask.NameToLayer("Viruses"))
         {
             PlayerTest.player.killedUnitEvent.Invoke(gameObject);
@@ -179,8 +193,8 @@ public class Cell : MonoBehaviour
     public void SetTarget(GameObject other)
     {
         target = other;
-        //Vector3 targetPos = other.transform.position;
-        //targetPos.y = 1;
+        Vector3 targetPos = other.transform.position;
+        targetPos.y = 1;
 
         if (navAgent.isOnNavMesh == false)
         {
@@ -188,7 +202,7 @@ public class Cell : MonoBehaviour
         }
         else
         {
-            //navAgent.SetDestination(targetPos);
+            navAgent.SetDestination(targetPos);
         }
     }
 }

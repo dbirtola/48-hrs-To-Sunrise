@@ -462,7 +462,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timeInBetweenAttacks: 0
   timer: 0
-  attackDamage: 5
+  attackDamage: 3
   isVirus: 0
   inRange: 0
 --- !u!114 &114075066599683498
@@ -476,7 +476,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72d1ff87b9be1400b910208cf89ded0d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingHealth: 4
+  startingHealth: 25
   currentHealth: 0
   despawnTime: 0
   isDead: 0
@@ -500,7 +500,7 @@ MonoBehaviour:
   rb: {fileID: 0}
   deathParticles: {fileID: 0}
   navAgent: {fileID: 0}
-  findTargetInterval: 0.3
+  findTargetInterval: 0.1
   visionRadius: 30
   visionLayerMask:
     serializedVersion: 2
@@ -517,7 +517,7 @@ SphereCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 0.89
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!135 &135997223816441590
 SphereCollider:

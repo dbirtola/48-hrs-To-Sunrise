@@ -50,14 +50,14 @@ public class Cell : MonoBehaviour
     virtual protected void Update()
     {
 
-        FindTarget();
-        /*
+        //FindTarget();
+        
         if (target != null)
         {
             Vector3 targetPos = target.transform.position;
             targetPos.y = 1;
             navAgent.SetDestination(targetPos);
-        }*/
+        }
 
         var child = transform.Find("blood cell");
         if (child != null)
@@ -71,13 +71,14 @@ public class Cell : MonoBehaviour
     }
 
 
-    virtual protected void OnTriggerStay()
+    virtual protected void OnTriggerEnter(Collider col)
     {
-        
-        Vector3 targetPos = target.transform.position;
-        
-        targetPos.y = 1;
-        navAgent.SetDestination(targetPos);
+
+        //Check to see if gameobjects layer is in this units vision mask
+        if (visionLayerMask == (visionLayerMask | 1 << col.gameObject.layer)){
+            FindTarget();
+            //SetTarget(col.gameObject);
+        }
     }
 
 

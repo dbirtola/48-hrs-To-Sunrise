@@ -59,6 +59,7 @@ GameObject:
   - component: {fileID: 82300640460696352}
   - component: {fileID: 114637205196732244}
   - component: {fileID: 114858943452110544}
+  - component: {fileID: 114124131202460270}
   m_Layer: 9
   m_Name: RedBloodCell
   m_TagString: bloodCell
@@ -465,6 +466,30 @@ MonoBehaviour:
   attackDamage: 0
   isVirus: 0
   inRange: 0
+--- !u!114 &114124131202460270
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1448813885150862}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7634db9458370e84b8b0279047e3410e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 0}
+  targetOrgan: {fileID: 0}
+  thrust: 0
+  rb: {fileID: 0}
+  deathParticles: {fileID: 0}
+  navAgent: {fileID: 0}
+  findTargetInterval: 0.3
+  visionRadius: 10
+  visionLayerMask:
+    serializedVersion: 2
+    m_Bits: 0
+  shouldChaseEnemy: 1
+  setDestinationInterval: 0.1
 --- !u!114 &114430306393548466
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -14,4 +14,9 @@ public class  WhiteBloodCell : Cell {
 	override protected void Update () {
         base.Update();
 	}
+
+    override protected void OnDestroy()
+    {
+        PlayerTest.player.killedUnitEvent.Invoke(gameObject);
+    }
 }

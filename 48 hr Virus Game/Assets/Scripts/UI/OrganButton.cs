@@ -1,8 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
-public class OrganButton : MonoBehaviour {
+public class OrganButton : MonoBehaviour, IPointerClickHandler{
     public GameObject associatedOrgan;
     
 	// Use this for initialization
@@ -15,15 +16,23 @@ public class OrganButton : MonoBehaviour {
 		
 	}
 
+    public void OnPointerClick(PointerEventData data)
+    {
+        if(data.button == PointerEventData.InputButton.Right)
+        {
+            if (associatedOrgan.GetComponent<Organ>())
+            {
+
+                PlayerTest.player.GetComponent<PlayerController>().SetTarget(associatedOrgan);
+            }
+        }
+    }
+
     void processClick()
     {
         Vector3 pos = associatedOrgan.transform.position;
         Vector3 oldPos = Camera.main.transform.position;
         Camera.main.transform.position = new Vector3(pos.x, oldPos.y, pos.z);
-        if (associatedOrgan.GetComponent<Organ>())
-        {
 
-            PlayerTest.player.GetComponent<PlayerController>().SetTarget(associatedOrgan);
-        }
     }
 }

@@ -14,6 +14,8 @@ public class virusCamera : MonoBehaviour {
 	void Update () {
         Vector3 mousePos = Input.mousePosition;
         Camera main = Camera.main;
+
+        /*
         if (mousePos.y > Screen.height - movementBorder)
             main.transform.position += transform.up * speed;
         if(mousePos.y < movementBorder)
@@ -22,5 +24,13 @@ public class virusCamera : MonoBehaviour {
             main.transform.position += transform.right * speed;
         if (mousePos.x < movementBorder)
             main.transform.position -= transform.right * speed;
+            */
+
+        float horizontalMovement = Input.GetAxis("Horizontal") * Time.deltaTime;
+        float verticalMovement = Input.GetAxis("Vertical") * Time.deltaTime;
+
+        main.transform.position += transform.up * speed * verticalMovement;
+        main.transform.position += transform.right * speed * horizontalMovement;
+
     }
 }

@@ -29,6 +29,10 @@ public class Cell : MonoBehaviour
 
 
     float speed = 1f;
+
+
+    private bool flickTrigger = true;
+
     virtual protected void Awake()
     {
         navAgent = GetComponent<NavMeshAgent>();
@@ -99,8 +103,16 @@ public class Cell : MonoBehaviour
             SetTarget(col.gameObject);
     }
 
-
-
+    //This is for performance 
+    IEnumerator flickerTrigger()
+    {
+        Collider col = GetComponent<Collider>();
+        while(flickTrigger == true)
+        {
+            col.enabled = !col.enabled;
+            yield return new WaitForSeconds(0.1f);
+        }
+    }
 
     IEnumerator chaseEnemy()
     {
@@ -136,13 +148,10 @@ public class Cell : MonoBehaviour
 
 
     
-    void OnDestroy()
+    virtual protected void OnDestroy()
     {
         cellsCreated--;
-        if (gameObject.layer != LayerMask.NameToLayer("Viruses"))
-        {
-            PlayerTest.player.killedUnitEvent.Invoke(gameObject);
-        }
+
         if (deathParticles != null)
         {
 

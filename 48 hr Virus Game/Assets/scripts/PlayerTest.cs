@@ -13,18 +13,28 @@ public class SpawnedUnitEvent : UnityEvent<GameObject>
 
 }
 
+
+
 public class PlayerTest : MonoBehaviour {
     public static PlayerTest player;
+
     public KilledUnitEvent killedUnitEvent;
     public SpawnedUnitEvent spawnedUnitEvent;
+
+
     public Mutation[] mutations;
     public int mutationPoints;
 
     void Awake()
     {
         player = this;
+
+
+
         killedUnitEvent = new KilledUnitEvent();
         spawnedUnitEvent = new SpawnedUnitEvent();
+
+
     }
 
     void OnDestroy()

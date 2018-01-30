@@ -7,10 +7,10 @@ public class HealthUpgrade : Mutation{
 	// Use this for initialization
 	override public void Start () {
         base.Start();
-        GetComponent<PlayerTest>().spawnedUnitEvent.AddListener(addDamageComponent);
+        GetComponent<PlayerTest>().spawnedUnitEvent.AddListener(addHealthComponent);
 	}
 
-    void addDamageComponent(GameObject unit)
+    void addHealthComponent(GameObject unit)
     {
         Debug.Log("Adding health buff!");
         var buff = unit.AddComponent<HealthBuff>();

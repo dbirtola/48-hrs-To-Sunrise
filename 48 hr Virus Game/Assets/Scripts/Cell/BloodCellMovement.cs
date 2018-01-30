@@ -55,7 +55,7 @@ public class BloodCellMovement : MonoBehaviour {
 
     void OnDestroy()
     {
-        if (gameObject.layer != LayerMask.NameToLayer("Viruses"))
+        if (!gameObject.GetComponent<Virus>())
         {
             PlayerTest.player.killedUnitEvent.Invoke(gameObject);
         }

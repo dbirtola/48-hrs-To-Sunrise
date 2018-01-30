@@ -31,16 +31,15 @@ public class SpawnEnemies : MonoBehaviour {
         pos.y = 1;
         GameObject temp = Instantiate(spawner, pos, Quaternion.identity);
         // Create an instance of the enemy prefab at the randomly selected spawn point's position and rotation.
-        if (spawnPoints != null)
+
+
+        if(temp.GetComponent<Cell>() == null)
         {
-            //temp = Instantiate(spawner, spawnPoints[spawnPointIndex].position, spawnPoints[spawnPointIndex].rotation);
         }else
         {
 
+            temp.GetComponent<Cell>().SetTargetOrgan(target);
         }
-
-            temp.GetComponent<BloodCellMovement>().SetTarget(target);
-
 
         if (GetComponent<PlayerController>())
         {

@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class Buff : MonoBehaviour {
 
+
+    protected bool applicationQuitting = false;
+
 	// Use this for initialization
 	void Start () {
 		
@@ -13,4 +16,9 @@ public class Buff : MonoBehaviour {
 	void Update () {
 		
 	}
+
+    void OnApplicationQuit()
+    {
+        applicationQuitting = true;
+    }
 }

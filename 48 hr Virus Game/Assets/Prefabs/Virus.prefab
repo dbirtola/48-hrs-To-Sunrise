@@ -2984,6 +2984,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d07ae42989cfaeb4ba2a56d487608b9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  applicationQuitting: 0
   target: {fileID: 0}
   targetOrgan: {fileID: 0}
   thrust: 0

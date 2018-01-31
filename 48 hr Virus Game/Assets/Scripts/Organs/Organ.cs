@@ -13,4 +13,10 @@ public class Organ : MonoBehaviour {
 	void Update () {
 		
 	}
+
+
+    void OnDestroy()
+    {
+        PlayerTest.player.mutationPoints++;
+    }
 }

@@ -15,7 +15,6 @@ public class PlayerController : MonoBehaviour {
     //counts the number of kills for Mutation points
     public int countKills;
     public float speed;
-    private Rigidbody rb;
 
     //number of spawned virus bodies
     public float spawnRate = .01f;
@@ -27,7 +26,6 @@ public class PlayerController : MonoBehaviour {
 	void Start () {
         NavMesh.pathfindingIterationsPerFrame = 1500;
         countKills = 0;
-        rb = GetComponent<Rigidbody>();
         
 	}
 

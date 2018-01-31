@@ -5,6 +5,8 @@ using UnityEngine.AI;
 
 public class Cell : MonoBehaviour
 {
+
+    public bool applicationQuitting = false;
     public static int cellsCreated = 0;
 
     public GameObject target;
@@ -90,6 +92,10 @@ public class Cell : MonoBehaviour
 
     }
 
+    void OnApplicationQuit()
+    {
+        applicationQuitting = true;
+    }
 
     virtual protected void OnTriggerEnter(Collider col)
     {
@@ -150,7 +156,14 @@ public class Cell : MonoBehaviour
     
     virtual protected void OnDestroy()
     {
+        if(applicationQuitting == true)
+        {
+            return;
+        }
         cellsCreated--;
+
+
+        PlayerTest.player.killedUnitEvent.Invoke(gameObject);
 
         if (deathParticles != null)
         {

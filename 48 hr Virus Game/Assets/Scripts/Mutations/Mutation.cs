@@ -10,6 +10,7 @@ public class Mutation : MonoBehaviour {
     }
 
 
+    public Color mutationColor;
 
     static Mutation focusedUpgrade;
     public Sprite backgroundIcon;
@@ -17,7 +18,6 @@ public class Mutation : MonoBehaviour {
     public string mutationName;
     [TextArea]
     public string description;
-
     public int currentDNALevel = 0;
      int[] DNAToLevel;
     public int upgradeLevel = 1;
@@ -42,18 +42,22 @@ public class Mutation : MonoBehaviour {
 
     protected virtual void processUnitKilled(GameObject unit)
     {
-        if(focusedUpgrade == this)
+        if (focusedUpgrade == this)
         {
-            currentDNALevel += 1;
-            if (currentDNALevel >= DNAToLevel[upgradeLevel])
+            if (unit.GetComponent<RedBloodCell>() || unit.GetComponent<WhiteBloodCell>())
             {
-                currentDNALevel = 0;
-                var aud = GetComponent<AudioSource>();
-                aud.Play();
-                upgradeLevel++;
-            }
+                currentDNALevel += 1;
+                if (currentDNALevel >= DNAToLevel[upgradeLevel])
+                {
+                    currentDNALevel = 0;
+                    var aud = GetComponent<AudioSource>();
+                    aud.Play();
+                    upgradeLevel++;
+                }
 
+            }
         }
+
 
     }
 
@@ -68,6 +72,8 @@ public class Mutation : MonoBehaviour {
 
     public float getPercentFull()
     {
+        if (upgradeLevel == maxLevel)
+            return 0;
         return (float)currentDNALevel / DNAToLevel[upgradeLevel];
     }
 

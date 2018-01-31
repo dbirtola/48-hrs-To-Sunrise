@@ -44,6 +44,7 @@ public class ResearchButton : MonoBehaviour {
         transform.GetChild(0).Find("Background").GetComponent<Image>().sprite = associatedUpgrade.icon;
         transform.parent.gameObject.GetComponent<Image>().sprite = associatedUpgrade.icon;
         GetComponent<Image>().sprite = associatedUpgrade.backgroundIcon;
+        transform.Find("Slider").Find("Fill Area").Find("Fill").GetComponent<Image>().color = upgrade.mutationColor;
     }
     
 

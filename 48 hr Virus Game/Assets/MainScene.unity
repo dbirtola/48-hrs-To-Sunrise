@@ -1291,6 +1291,7 @@ GameObject:
   - component: {fileID: 358326438}
   - component: {fileID: 358326439}
   - component: {fileID: 358326440}
+  - component: {fileID: 358326441}
   m_Layer: 11
   m_Name: Player
   m_TagString: Untagged
@@ -1422,6 +1423,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d153595ac9475445ac75f6d7b09c64c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mutationColor: {r: 0.01184041, g: 0.53676474, b: 0.01184041, a: 0.341}
   backgroundIcon: {fileID: 21300000, guid: 695761acb5e913a4e9dc0c865e0aa155, type: 3}
   icon: {fileID: 21300000, guid: b8850f8847765224d8bc1060bebb5bf9, type: 3}
   mutationName: Infection
@@ -1442,6 +1444,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36ea9d64349009a4da46e99ecaae6a90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mutationColor: {r: 0.093101196, g: 0.4344111, b: 0.9044118, a: 0.359}
   backgroundIcon: {fileID: 21300000, guid: 8681eb0818b40284e8b0533fd02857db, type: 3}
   icon: {fileID: 21300000, guid: f4e070ad4849b0d4d8717e561b001b87, type: 3}
   mutationName: Damage
@@ -1461,6 +1464,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 107a2ffc0bdb0674cb1c541b5c6769fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mutationColor: {r: 0.8235294, g: 0, b: 0, a: 0.378}
   backgroundIcon: {fileID: 21300000, guid: 7096ebea6a9546b48a3d39d62740b45b, type: 3}
   icon: {fileID: 21300000, guid: 25029c45b4131b34da59cc7fdb3360f4, type: 3}
   mutationName: Health Upgrade
@@ -1469,6 +1473,7 @@ MonoBehaviour:
   upgradeLevel: 1
   maxLevel: 10
   activeUpgrade: 0
+  healthPerLevel: 2
 --- !u!114 &358326438
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1572,11 +1577,12 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 358326427}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b4c1652c7dc2cbb45aed3a659a8a3735, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mutationColor: {r: 1, g: 0.39310342, b: 0, a: 0.397}
   backgroundIcon: {fileID: 21300000, guid: 846bebed7d1ebb449b31c37ffb2bf8df, type: 3}
   icon: {fileID: 21300000, guid: 568126939f49ab540bddeede4561964a, type: 3}
   mutationName: Explosive Viruses
@@ -1585,6 +1591,29 @@ MonoBehaviour:
   upgradeLevel: 1
   maxLevel: 10
   activeUpgrade: 0
+--- !u!114 &358326441
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 358326427}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28236d4547272ce4e9e516163ea23759, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mutationColor: {r: 0.5974265, g: 0.9113844, b: 0.9558824, a: 0}
+  backgroundIcon: {fileID: 21300000, guid: 3fee3eddad3471f4fa543f18d9e4e341, type: 3}
+  icon: {fileID: 21300000, guid: 68b42ecc095c8854799edb2f0b8a8160, type: 3}
+  mutationName: Mitosis
+  description: Chance for a virus to split into 3 smaller viruses.
+  currentDNALevel: 0
+  upgradeLevel: 1
+  maxLevel: 10
+  activeUpgrade: 0
+  chancePerLevel: 20
+  virusPrefab: {fileID: 1455590096271596, guid: dcd54e5e7b0054b45a634b70eae473ca,
+    type: 2}
 --- !u!1 &372713071
 GameObject:
   m_ObjectHideFlags: 0
@@ -2898,6 +2927,16 @@ Prefab:
         type: 2}
       propertyPath: m_Interactable
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114440213685830932, guid: a17a30f744a1edb4591d9e8af33860b1,
+        type: 2}
+      propertyPath: m_Interactable
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114737459624794142, guid: a17a30f744a1edb4591d9e8af33860b1,
+        type: 2}
+      propertyPath: m_Value
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a17a30f744a1edb4591d9e8af33860b1, type: 2}
@@ -5585,6 +5624,78 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1876066580}
+--- !u!1001 &1890800622
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4682665080268668, guid: ef44146a1900323409c4e7ee3859e6cf, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 218.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4682665080268668, guid: ef44146a1900323409c4e7ee3859e6cf, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 3.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4682665080268668, guid: ef44146a1900323409c4e7ee3859e6cf, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 228.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4682665080268668, guid: ef44146a1900323409c4e7ee3859e6cf, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4682665080268668, guid: ef44146a1900323409c4e7ee3859e6cf, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0.60411227
+      objectReference: {fileID: 0}
+    - target: {fileID: 4682665080268668, guid: ef44146a1900323409c4e7ee3859e6cf, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4682665080268668, guid: ef44146a1900323409c4e7ee3859e6cf, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: -0.79689926
+      objectReference: {fileID: 0}
+    - target: {fileID: 4682665080268668, guid: ef44146a1900323409c4e7ee3859e6cf, type: 2}
+      propertyPath: m_RootOrder
+      value: 19
+      objectReference: {fileID: 0}
+    - target: {fileID: 114851961692621270, guid: ef44146a1900323409c4e7ee3859e6cf,
+        type: 2}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 358326427}
+    - target: {fileID: 1410566822076592, guid: ef44146a1900323409c4e7ee3859e6cf, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4682665080268668, guid: ef44146a1900323409c4e7ee3859e6cf, type: 2}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4682665080268668, guid: ef44146a1900323409c4e7ee3859e6cf, type: 2}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -434.33
+      objectReference: {fileID: 0}
+    - target: {fileID: 4682665080268668, guid: ef44146a1900323409c4e7ee3859e6cf, type: 2}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1410566822076592, guid: ef44146a1900323409c4e7ee3859e6cf, type: 2}
+      propertyPath: m_Name
+      value: WhiteCellSpawner (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 114851961692621270, guid: ef44146a1900323409c4e7ee3859e6cf,
+        type: 2}
+      propertyPath: spawnTime
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: ef44146a1900323409c4e7ee3859e6cf, type: 2}
+  m_IsPrefabParent: 0
 --- !u!224 &1951768154 stripped
 RectTransform:
   m_PrefabParentObject: {fileID: 224655986724327770, guid: a17a30f744a1edb4591d9e8af33860b1,

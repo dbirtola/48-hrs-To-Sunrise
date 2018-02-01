@@ -45,7 +45,7 @@ public class Damage : MonoBehaviour {
 			}
 		}*/
         
-        if (col.gameObject.GetComponent<Health>())
+        if (col.gameObject.GetComponent<Health>() && GetComponent<Cell>().visionLayerMask == (GetComponent<Cell>().visionLayerMask | 1 << col.gameObject.layer))
         { 
             col.gameObject.GetComponent<Health>().inflictDamage(attackDamage, gameObject);
         }

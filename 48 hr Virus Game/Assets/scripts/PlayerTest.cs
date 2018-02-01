@@ -97,8 +97,6 @@ public class PlayerTest : MonoBehaviour {
         
         if (Input.GetKeyDown(KeyCode.A))
         {
-            Debug.Log("A");
-            killedUnitEvent.Invoke(gameObject);
         }
         if (Input.GetKeyDown(KeyCode.T))
         {

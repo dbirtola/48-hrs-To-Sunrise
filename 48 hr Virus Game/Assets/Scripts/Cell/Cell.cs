@@ -38,6 +38,7 @@ public class Cell : MonoBehaviour
     virtual protected void Awake()
     {
         navAgent = GetComponent<NavMeshAgent>();
+        rb = GetComponent<Rigidbody>();
         //navAgent.updateRotation = false;
         //navAgent.updatePosition = false;
 
@@ -46,10 +47,10 @@ public class Cell : MonoBehaviour
     // Use this for initialization
     virtual protected void Start()
     {
-        rb = GetComponent<Rigidbody>();
+        rb.isKinematic = true;
         rb.angularVelocity = new Vector3(Random.Range(0, 10), Random.Range(0, 10), Random.Range(0, 10));
         navAgent.updateRotation = false;
-        //StartCoroutine(CheckForEnemies());
+        StartCoroutine(CheckForEnemies2());
         //StartCoroutine(chaseEnemy());
         cellsCreated++;
     }
@@ -62,23 +63,20 @@ public class Cell : MonoBehaviour
         if (target == null)
         {
             FindTarget();
-        }
-
-
-
-        /*else { 
+        }else if(target != targetOrgan) { 
             Vector3 targetPos = target.transform.position;
             targetPos.y = 1;
             navAgent.SetDestination(targetPos);
         }
-        */
+        
 
 
 
-        if (target.GetComponent<Cell>())
+        /*
+         * if (target.GetComponent<Cell>())
         {
             rb.velocity = (target.transform.position - transform.position).normalized * Time.deltaTime * speed;
-        }
+        }*/
 
         /*
         var child = transform.Find("blood cell");
@@ -105,8 +103,38 @@ public class Cell : MonoBehaviour
             FindTarget();
             //SetTarget(col.gameObject);
         }*/
-        if(col.gameObject.GetComponent<Cell>())
+        if (visionLayerMask == (visionLayerMask | 1 << col.gameObject.layer))
+        {
+            if (target != null && target.GetComponent<Cell>())
+                return;
             SetTarget(col.gameObject);
+            rb.isKinematic = false;
+        }
+    }
+
+    IEnumerator CheckForEnemies2()
+    {
+        //Happens once per checktime
+        //Avoids using a collider to check for enemies around in the interest of performance
+        while (aware)
+        {
+            var surroundings = Physics.OverlapSphere(transform.position, visionRadius, visionLayerMask);
+            if (surroundings.Length > 0)
+            {
+                if (!(target != null && target.GetComponent<Cell>()))
+                {
+                    SetTarget(surroundings[0].gameObject);
+                    rb.isKinematic = false;
+
+                }
+
+
+            }
+
+            yield return new WaitForSeconds(findTargetInterval);
+        }
+
+        yield return null;
     }
 
     //This is for performance 
@@ -190,6 +218,7 @@ public class Cell : MonoBehaviour
     public void FindTarget()
     {
         var surroundings = Physics.OverlapSphere(transform.position, visionRadius, visionLayerMask);
+        
         if (surroundings.Length > 0)
         {
             SetTarget(surroundings[0].gameObject);

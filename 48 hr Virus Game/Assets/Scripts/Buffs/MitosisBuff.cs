@@ -15,7 +15,6 @@ public class MitosisBuff : Buff {
         
         for(int i = 0; i < 3; i++)
         {
-            Debug.Log("Creatng mini");
             GameObject temp = Instantiate(virusPrefab, transform.position, transform.rotation);
             temp.transform.localScale = temp.transform.localScale * 0.5f;
             temp.GetComponent<Damage>().attackDamage = (int)(GetComponent<Damage>().attackDamage * 0.3f);

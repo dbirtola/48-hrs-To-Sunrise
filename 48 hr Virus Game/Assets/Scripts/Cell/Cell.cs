@@ -31,7 +31,7 @@ public class Cell : MonoBehaviour
 
 
     float speed = 1f;
-
+    Vector3 rotation;
 
     private bool flickTrigger = true;
 
@@ -39,27 +39,25 @@ public class Cell : MonoBehaviour
     {
         navAgent = GetComponent<NavMeshAgent>();
         rb = GetComponent<Rigidbody>();
-        //navAgent.updateRotation = false;
-        //navAgent.updatePosition = false;
-
+        rotation = new Vector3(Random.Range(-10, 10), Random.Range(-10, 10), Random.Range(-10, 10)) * 50;
+        rb.isKinematic = true;
+        navAgent.updateRotation = false;
+        cellsCreated++;
     }
 
     // Use this for initialization
     virtual protected void Start()
     {
-        rb.isKinematic = true;
-        rb.angularVelocity = new Vector3(Random.Range(0, 10), Random.Range(0, 10), Random.Range(0, 10));
-        navAgent.updateRotation = false;
+        //rb.angularVelocity = new Vector3(Random.Range(0, 10), Random.Range(0, 10), Random.Range(0, 10));
+
         StartCoroutine(CheckForEnemies2());
-        //StartCoroutine(chaseEnemy());
-        cellsCreated++;
     }
 
     virtual protected void Update()
     {
 
-        //FindTarget();
-        
+        rb.transform.Rotate(rotation * Time.deltaTime);
+
         if (target == null)
         {
             FindTarget();
@@ -68,41 +66,12 @@ public class Cell : MonoBehaviour
             targetPos.y = 1;
             navAgent.SetDestination(targetPos);
         }
-        
-
-
-
-        /*
-         * if (target.GetComponent<Cell>())
-        {
-            rb.velocity = (target.transform.position - transform.position).normalized * Time.deltaTime * speed;
-        }*/
-
-        /*
-        var child = transform.Find("blood cell");
-        if (child != null)
-        {
-            child.transform.Rotate(new Vector3(Random.Range(0, 10), Random.Range(0, 10), Random.Range(0, 10)) * Time.deltaTime);
-        }
-
-        */
-
 
     }
 
-    void OnApplicationQuit()
-    {
-        applicationQuitting = true;
-    }
-
+    /*
     virtual protected void OnTriggerEnter(Collider col)
     {
-        /*
-        //Check to see if gameobjects layer is in this units vision mask
-        if (visionLayerMask == (visionLayerMask | 1 << col.gameObject.layer)){
-            FindTarget();
-            //SetTarget(col.gameObject);
-        }*/
         if (visionLayerMask == (visionLayerMask | 1 << col.gameObject.layer))
         {
             if (target != null && target.GetComponent<Cell>())
@@ -110,8 +79,9 @@ public class Cell : MonoBehaviour
             SetTarget(col.gameObject);
             rb.isKinematic = false;
         }
-    }
+    }*/
 
+    
     IEnumerator CheckForEnemies2()
     {
         //Happens once per checktime
@@ -137,48 +107,6 @@ public class Cell : MonoBehaviour
         yield return null;
     }
 
-    //This is for performance 
-    IEnumerator flickerTrigger()
-    {
-        Collider col = GetComponent<Collider>();
-        while(flickTrigger == true)
-        {
-            col.enabled = !col.enabled;
-            yield return new WaitForSeconds(0.1f);
-        }
-    }
-
-    IEnumerator chaseEnemy()
-    {
-        while(shouldChaseEnemy == true)
-        {
-
-            if (target != null)
-            {
-                if (GetComponent<Virus>())
-                    Debug.Log("Chasing");
-                Vector3 targetPos = target.transform.position;
-                targetPos.y = 1;
-                navAgent.SetDestination(targetPos);
-            }
-            yield return new WaitForSeconds(setDestinationInterval);
-        }
-
-    }
-
-    IEnumerator CheckForEnemies()
-    {
-        //Happens once per checktime
-        //Avoids using a collider to check for enemies around in the interest of performance
-        while (aware)
-        {
-            FindTarget();
-            yield return new WaitForSeconds(findTargetInterval);
-        }
-
-        yield return null;
-    }
-
 
 
     
@@ -191,7 +119,8 @@ public class Cell : MonoBehaviour
         cellsCreated--;
 
 
-        PlayerTest.player.killedUnitEvent.Invoke(gameObject);
+        if(PlayerTest.player.killedUnitEvent != null)
+            PlayerTest.player.killedUnitEvent.Invoke(gameObject);
 
         if (deathParticles != null)
         {
@@ -203,15 +132,6 @@ public class Cell : MonoBehaviour
     }
 
 
-    /*
-    public void OnTriggerStay(Collider col)
-    {
-        if (col.gameObject.GetComponent<BloodCellMovement>() != null)
-        {
-
-            GetComponent<NavMeshAgent>().SetDestination(col.transform.position);
-        }
-    }*/
 
 
 
@@ -256,4 +176,11 @@ public class Cell : MonoBehaviour
             navAgent.SetDestination(targetPos);
         }
     }
+
+
+    void OnApplicationQuit()
+    {
+        applicationQuitting = true;
+    }
+
 }

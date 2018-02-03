@@ -6,7 +6,7 @@ public class RedBloodCell : Cell{
 
 	// Use this for initialization
 	override protected void Start () {
-        base.Start();
+
 	}
 	
 	// Update is called once per frame
@@ -14,8 +14,16 @@ public class RedBloodCell : Cell{
         base.Update();
 	}
 
+    void OnCollisionEnter(Collision col)
+    {
+        if (col.gameObject.GetComponent<PlayerTest>())
+        {
+            Destroy(gameObject);
+        }
+    }
     override protected void OnDestroy()
     {
+        base.OnDestroy();
         PlayerTest.player.killedUnitEvent.Invoke(gameObject);
     }
 }

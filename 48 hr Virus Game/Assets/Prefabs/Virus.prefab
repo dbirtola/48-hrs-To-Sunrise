@@ -59,7 +59,6 @@ GameObject:
   - component: {fileID: 114316214771245440}
   - component: {fileID: 82099747874130360}
   - component: {fileID: 114181211451254328}
-  - component: {fileID: 135128605484913522}
   m_Layer: 8
   m_Name: Virus
   m_TagString: Untagged
@@ -427,7 +426,7 @@ MonoBehaviour:
   visionRadius: 30
   visionLayerMask:
     serializedVersion: 2
-    m_Bits: 1536
+    m_Bits: 3584
   shouldChaseEnemy: 1
   setDestinationInterval: 0.01
 --- !u!114 &114198789442053590
@@ -464,18 +463,6 @@ MonoBehaviour:
   damaged: 0
   damageTakenParticle: {fileID: 198486616674736624, guid: a24e490fd2fbad443b4b1377307a9413,
     type: 2}
---- !u!135 &135128605484913522
-SphereCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1455590096271596}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 0
-  serializedVersion: 2
-  m_Radius: 12
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!135 &135593778807613334
 SphereCollider:
   m_ObjectHideFlags: 1

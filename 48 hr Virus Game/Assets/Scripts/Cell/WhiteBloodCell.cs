@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class  WhiteBloodCell : Cell {
 
-	// Use this for initialization
-	override protected void Start()
+
+
+    // Use this for initialization
+    override protected void Start()
     {
         base.Start();
     }
@@ -17,6 +19,7 @@ public class  WhiteBloodCell : Cell {
 
     override protected void OnDestroy()
     {
+        base.OnDestroy();
         PlayerTest.player.killedUnitEvent.Invoke(gameObject);
     }
 }

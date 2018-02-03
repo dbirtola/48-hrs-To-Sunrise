@@ -11,6 +11,8 @@ public class Damage : MonoBehaviour {
 	public bool isVirus;
 	public bool inRange;
 
+    public float range;
+
 	Damage otherDamage; 
 	Health thisHealth;
 
@@ -18,15 +20,26 @@ public class Damage : MonoBehaviour {
 		thisHealth = gameObject.GetComponent<Health> ();
 	}
 
-	void Update () {
-		timer += Time.deltaTime; 
-		//if(timer >= timeInBetweenAttacks && inRange && thisHealth.currentHealth > 0)
-			//Attack ();
-	}
+
 
     IEnumerator dealConsistentDamage()
     {
-        return null;
+        while (true)
+        {
+            if(GetComponent<Cell>() != null)
+            {
+                if (Vector3.Distance(GetComponent<Cell>().target.transform.position, gameObject.transform.position) <= range)
+                {
+                    GetComponent<Cell>().target.GetComponent<Health>().inflictDamage(attackDamage, gameObject);
+                    Debug.Log(gameObject + " dealt " + attackDamage + " consistent damage to " + GetComponent<Cell>().target);
+                    yield return new WaitForSeconds(timeInBetweenAttacks);
+                }else
+                {
+                    yield return null;
+                }
+            }
+        }
+        
     }
 
 	void OnCollisionEnter (Collision col)

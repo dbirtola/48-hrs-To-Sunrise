@@ -128,7 +128,7 @@ aa484e065a84a1e84a116109c6295a8a Assembly-CSharp.dll:.DamageUpgrade
 e0f97873ef56f7e9d902a28dd30b922a Assembly-CSharp.dll:.RedBloodCell
 322cb40e1e282f28af980cbef7922a90 UnityEngine.Analytics.dll:UnityEngine.Analytics.AnalyticsEventTracker
 dc07d7ad69b399a46e92c483bf1c04ca UnityEngine.Analytics.dll:UnityEngine.Analytics.AnalyticsTracker
-130c0a571c88a98ea2209bc3c45cf461 Assembly-CSharp.dll:.Damage
+96e4019047ed369d9dd5a39e6d9aa958 Assembly-CSharp.dll:.Damage
 bc68edb0af574bf79f9550ead8ebae5c UnityEngine.HoloLens.dll:UnityEngine.Audio.AudioSpatializerMicrosoft
 05524b8f659e7bfe5756d1335fec24ba UnityEngine.HoloLens.dll:UnityEngine.EventSystems.HoloLensInput
 463516d5b5fe8e67a0a24c48f2095b04 UnityEngine.HoloLens.dll:UnityEngine.EventSystems.HoloLensInputModule
